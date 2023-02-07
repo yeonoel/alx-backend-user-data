@@ -32,7 +32,7 @@ def unauthorized() -> str:
     abort(401)
 
 
-@pp_views.route('/forbidden', methods=['GET'], strict_slashes=False)
+@app_views.route('/forbidden', methods=['GET'], strict_slashes=False)
 def forbidden() -> str:
     """ forbidden endpoint raise 403 error by abort"""
     abort(403)
