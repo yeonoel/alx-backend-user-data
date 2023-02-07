@@ -2,3 +2,4 @@
 """Basic auth Module"""
 
 class BasicAuth(Auth):
+    pas
