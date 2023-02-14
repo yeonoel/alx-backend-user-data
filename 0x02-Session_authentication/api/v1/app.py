@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-"""
-Route module for the API
-"""
+""" Route module for the API """
+
 from os import getenv
 from api.v1.views import app_views
 from flask import Flask, jsonify, abort, request
@@ -54,6 +53,8 @@ def forbidden_error(error) -> str:
 @app.before_request
 def before_request():
     """before_request handler"""
+    request.current_user = auth.current_user(request)
+
     if auth is None:
         return
 
@@ -71,6 +72,11 @@ def before_request():
 
     if auth.current_user(request) is None:
         abort(403)
+
+    current_user = auth.current_user(request)
+    if current is None:
+        abort(403)
+     request.current_user = current_user
 
 
 if __name__ == "__main__":
