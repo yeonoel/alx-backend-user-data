@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
-"""
-User Model
-"""
-
+""" Create User Model with sqlalchemy """
 
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
@@ -11,7 +8,7 @@ Base = declarative_base()
 
 
 class User(Base):
-    """ User Model """
+    """ The model will have the following attributes: """
     __tablename__ = 'users'
 
     id = Column(Integer, primary_Key=True)
